@@ -1,0 +1,8 @@
+PidFile=/run/zabbix/zabbix_agentd.pid
+LogFile=/var/log/zabbix/zabbix_agentd.log
+LogFileSize=0
+Server=172.23.100.48
+ServerActive=172.23.100.48
+HostMetadata=Linux Servers
+HostInterface={{ ansible_host }}
+Include=/etc/zabbix/zabbix_agentd.d/*.conf

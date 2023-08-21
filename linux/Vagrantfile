@@ -1,0 +1,45 @@
+Vagrant.configure("2") do |config|
+  num_vms = 4  # Número de máquinas virtuales a crear
+
+  config.vm.provision "shell", inline: <<-SHELL
+    # Agregar el usuario 'ansible'
+    sudo useradd -m -s /bin/bash ansible
+    sudo mkdir -p /home/ansible/.ssh
+    sudo bash -c 'echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDHJmCKwfDDcSTQwOyG/khvkCj8OTYqkm1O7LKm8NDna4HD0NzExU0ozuqsjFdWTTqbseNvwFulpVQYjzEGgGLBdfmKI8GhL9zHSV4XqnMGh4JeppQWvE4F3MiTBFxBeh7BPoPnLlkQ84XkjMEX7XFgw7TVYm5sWxXfmadVpApm96/7skNVtZ61stFCnqyG3PWO+27+h3+7Y43uo4uugq78nLtHkpBxT5u07ifpmphDHd0xcfysZrMUAxM6b0XaGmL7UCDLOFt4YlyfVpA4fUVf63Fym+aeIv0mHVqctmZMvHL/HcZMNJlwJyYjdHzz/mQqdeXLMEmnBkOQ4XMms5y8xsvobMRDLdsRNrwGsqSL6VMBmPLpfJ89904my9ZSOeqMkPuW8/Ds1ti7IogNG8pO/Kot951UBXDwlD7kfGJxUs2vDsaBmmo6DBqWH/LvCpVhcroLvQymdHbOTxSaClNzF6ntxp0mIYpBAHG4E4Gp/Iv5N4auPkasv0ihZR1hc78gUCnpevzHNKsWjig7RWQ3vwXI+MmcshGOy236GonTe1GMXOwReOvF98PaSF4GQaSKaoyjhJEGZjrSxag3eRMjhLfK1o3pYjnaxqSBR7t0gZX7wmpaihs56A/a2Wq8iaZctEcBT5pKzlxtUnfuI8EUgc5Y+LFVu+SQThi87qOJKQ==" > /home/ansible/.ssh/authorized_keys'
+    sudo chown -R ansible:ansible /home/ansible/.ssh
+    sudo chmod 700 /home/ansible/.ssh
+    sudo chmod 600 /home/ansible/.ssh/authorized_keys
+    sudo wget https://repo.zabbix.com/zabbix/6.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.0-4+ubuntu20.04_all.deb
+    sudo dpkg -i zabbix-release_6.0-4+ubuntu20.04_all.deb
+    sudo apt-get update
+    sudo apt-get install tmux stressapptest
+    # Agregar permiso NOPASSWD para ansible
+    echo "ansible ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/ansible
+  SHELL
+
+  (1..num_vms).each do |i|
+    config.vm.define "vm#{i}" do |vm|
+      vm.vm.box = "ubuntu/focal64"
+      vm.vm.network "private_network", ip: "192.168.56.20#{i}"
+      vm.vm.hostname = "vm#{i}" 
+      vm.vm.provider "virtualbox" do |vb|
+        vb.memory = "2048"
+        vb.cpus = 2
+      end
+    end
+  end
+
+  config.vm.define "zabbix-server" do |vm|
+    vm.vm.box = "ubuntu/focal64"
+    vm.vm.network "private_network", ip: "192.168.56.200"
+    vm.vm.hostname = "zabbix-server" 
+    vm.vm.provider "virtualbox" do |vb|
+      vb.memory = "2048"
+      vb.cpus = 2
+    end
+    vm.vm.provision "shell", inline: <<-SHELL
+      sudo apt-get update
+      sudo apt-get --download-only install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent mysql-server -y
+    SHELL
+  end
+end

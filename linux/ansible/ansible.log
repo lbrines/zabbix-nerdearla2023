@@ -1,0 +1,226 @@
+2023-08-20 14:13:52,801 p=209270 u=lbrines n=ansible | [WARNING]: While constructing a mapping from /home/lbrines/projects/nerdearla/linux/ansible/inventory.yml, line 2, column 3, found a duplicate dict key (hosts). Using last defined value only.
+
+2023-08-20 14:13:54,752 p=209270 u=lbrines n=ansible | zabbix-server-k8s | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-08-20 14:14:26,704 p=209304 u=lbrines n=ansible | [WARNING]: While constructing a mapping from /home/lbrines/projects/nerdearla/linux/ansible/inventory.yml, line 2, column 3, found a duplicate dict key (hosts). Using last defined value only.
+
+2023-08-20 14:14:26,710 p=209304 u=lbrines n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: vm2
+
+2023-08-20 14:14:26,710 p=209304 u=lbrines n=ansible | [WARNING]: No hosts matched, nothing to do
+
+2023-08-20 14:17:05,754 p=211467 u=lbrines n=ansible | [WARNING]: Skipping unexpected key (hostsvm1) in group (all), only "vars", "children" and "hosts" are valid
+
+2023-08-20 14:17:05,755 p=211467 u=lbrines n=ansible | [WARNING]: Skipping unexpected key (hostsvm2) in group (all), only "vars", "children" and "hosts" are valid
+
+2023-08-20 14:17:05,755 p=211467 u=lbrines n=ansible | [WARNING]: Skipping unexpected key (hostsvm3) in group (all), only "vars", "children" and "hosts" are valid
+
+2023-08-20 14:17:05,755 p=211467 u=lbrines n=ansible | [WARNING]: Skipping unexpected key (hostsvm4) in group (all), only "vars", "children" and "hosts" are valid
+
+2023-08-20 14:17:05,755 p=211467 u=lbrines n=ansible | [WARNING]: Skipping unexpected key (hostszabbix-server) in group (all), only "vars", "children" and "hosts" are valid
+
+2023-08-20 14:17:05,755 p=211467 u=lbrines n=ansible | [WARNING]: Skipping unexpected key (hostszabbix-server-k8s) in group (all), only "vars", "children" and "hosts" are valid
+
+2023-08-20 14:17:05,758 p=211467 u=lbrines n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-08-20 14:19:27,733 p=213555 u=lbrines n=ansible | vm2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-08-20 14:19:27,824 p=213555 u=lbrines n=ansible | vm4 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-08-20 14:19:27,882 p=213555 u=lbrines n=ansible | vm3 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-08-20 14:19:27,908 p=213555 u=lbrines n=ansible | vm1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-08-20 14:19:27,955 p=213555 u=lbrines n=ansible | zabbix-server | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-08-20 14:19:29,505 p=213555 u=lbrines n=ansible | zabbix-server-k8s | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-08-20 14:20:14,002 p=213618 u=lbrines n=ansible | vm2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-08-20 14:20:14,069 p=213618 u=lbrines n=ansible | vm4 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-08-20 14:20:14,148 p=213618 u=lbrines n=ansible | vm1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-08-20 14:20:14,168 p=213618 u=lbrines n=ansible | zabbix-server | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-08-20 14:20:14,304 p=213618 u=lbrines n=ansible | vm3 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-08-20 14:20:15,821 p=213618 u=lbrines n=ansible | zabbix-server-k8s | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-08-20 14:35:04,206 p=222620 u=lbrines n=ansible | PLAY [Instalar y configurar Zabbix Agent] *************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:35:04,213 p=222620 u=lbrines n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:35:06,481 p=222620 u=lbrines n=ansible | fatal: [vm1]: FAILED! => {"msg": "Missing sudo password"}
+2023-08-20 14:35:06,542 p=222620 u=lbrines n=ansible | fatal: [vm2]: FAILED! => {"msg": "Missing sudo password"}
+2023-08-20 14:35:06,613 p=222620 u=lbrines n=ansible | fatal: [vm4]: FAILED! => {"msg": "Missing sudo password"}
+2023-08-20 14:35:06,698 p=222620 u=lbrines n=ansible | fatal: [vm3]: FAILED! => {"msg": "Missing sudo password"}
+2023-08-20 14:35:06,699 p=222620 u=lbrines n=ansible | PLAY RECAP ********************************************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:35:06,699 p=222620 u=lbrines n=ansible | vm1                        : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-08-20 14:35:06,699 p=222620 u=lbrines n=ansible | vm2                        : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-08-20 14:35:06,699 p=222620 u=lbrines n=ansible | vm3                        : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-08-20 14:35:06,699 p=222620 u=lbrines n=ansible | vm4                        : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-08-20 14:35:33,245 p=222663 u=lbrines n=ansible | vm2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-08-20 14:35:33,347 p=222663 u=lbrines n=ansible | vm3 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-08-20 14:35:33,366 p=222663 u=lbrines n=ansible | vm1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-08-20 14:35:33,441 p=222663 u=lbrines n=ansible | vm4 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-08-20 14:37:43,011 p=222770 u=lbrines n=ansible | PLAY [Instalar y configurar Zabbix Agent] *************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:37:43,019 p=222770 u=lbrines n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:37:45,355 p=222770 u=lbrines n=ansible | fatal: [vm3]: FAILED! => {"msg": "Missing sudo password"}
+2023-08-20 14:37:45,378 p=222770 u=lbrines n=ansible | fatal: [vm1]: FAILED! => {"msg": "Missing sudo password"}
+2023-08-20 14:37:45,385 p=222770 u=lbrines n=ansible | fatal: [vm2]: FAILED! => {"msg": "Missing sudo password"}
+2023-08-20 14:37:45,454 p=222770 u=lbrines n=ansible | fatal: [vm4]: FAILED! => {"msg": "Missing sudo password"}
+2023-08-20 14:37:45,455 p=222770 u=lbrines n=ansible | PLAY RECAP ********************************************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:37:45,455 p=222770 u=lbrines n=ansible | vm1                        : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-08-20 14:37:45,455 p=222770 u=lbrines n=ansible | vm2                        : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-08-20 14:37:45,455 p=222770 u=lbrines n=ansible | vm3                        : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-08-20 14:37:45,455 p=222770 u=lbrines n=ansible | vm4                        : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-08-20 14:39:55,817 p=222888 u=lbrines n=ansible | PLAY [Instalar y configurar Zabbix Agent] *************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:39:55,824 p=222888 u=lbrines n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:39:58,126 p=222888 u=lbrines n=ansible | fatal: [vm4]: FAILED! => {"msg": "Missing sudo password"}
+2023-08-20 14:39:58,153 p=222888 u=lbrines n=ansible | fatal: [vm3]: FAILED! => {"msg": "Missing sudo password"}
+2023-08-20 14:39:58,306 p=222888 u=lbrines n=ansible | fatal: [vm1]: FAILED! => {"msg": "Missing sudo password"}
+2023-08-20 14:39:58,306 p=222888 u=lbrines n=ansible | fatal: [vm2]: FAILED! => {"msg": "Missing sudo password"}
+2023-08-20 14:39:58,307 p=222888 u=lbrines n=ansible | PLAY RECAP ********************************************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:39:58,308 p=222888 u=lbrines n=ansible | vm1                        : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-08-20 14:39:58,308 p=222888 u=lbrines n=ansible | vm2                        : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-08-20 14:39:58,308 p=222888 u=lbrines n=ansible | vm3                        : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-08-20 14:39:58,308 p=222888 u=lbrines n=ansible | vm4                        : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-08-20 14:44:37,128 p=223105 u=lbrines n=ansible | PLAY [Instalar y configurar Zabbix Agent] *************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:44:37,135 p=223105 u=lbrines n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:44:39,503 p=223105 u=lbrines n=ansible | fatal: [vm1]: FAILED! => {"msg": "Missing sudo password"}
+2023-08-20 14:44:39,539 p=223105 u=lbrines n=ansible | fatal: [vm4]: FAILED! => {"msg": "Missing sudo password"}
+2023-08-20 14:44:39,571 p=223105 u=lbrines n=ansible | fatal: [vm3]: FAILED! => {"msg": "Missing sudo password"}
+2023-08-20 14:44:39,587 p=223105 u=lbrines n=ansible | fatal: [vm2]: FAILED! => {"msg": "Missing sudo password"}
+2023-08-20 14:44:39,588 p=223105 u=lbrines n=ansible | PLAY RECAP ********************************************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:44:39,589 p=223105 u=lbrines n=ansible | vm1                        : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-08-20 14:44:39,589 p=223105 u=lbrines n=ansible | vm2                        : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-08-20 14:44:39,589 p=223105 u=lbrines n=ansible | vm3                        : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-08-20 14:44:39,589 p=223105 u=lbrines n=ansible | vm4                        : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-08-20 14:50:20,076 p=224083 u=lbrines n=ansible | PLAY [Instalar y configurar Zabbix Agent] *************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:50:20,084 p=224083 u=lbrines n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:50:23,836 p=224083 u=lbrines n=ansible | ok: [vm3]
+2023-08-20 14:50:23,905 p=224083 u=lbrines n=ansible | ok: [vm4]
+2023-08-20 14:50:23,926 p=224083 u=lbrines n=ansible | ok: [vm2]
+2023-08-20 14:50:24,169 p=224083 u=lbrines n=ansible | ok: [vm1]
+2023-08-20 14:50:24,217 p=224083 u=lbrines n=ansible | TASK [Descargar e instalar el paquete Zabbix Release] *************************************************************************************************************************************************************************************************************************
+2023-08-20 14:50:26,350 p=224083 u=lbrines n=ansible | ok: [vm2]
+2023-08-20 14:50:26,351 p=224083 u=lbrines n=ansible | ok: [vm1]
+2023-08-20 14:50:26,354 p=224083 u=lbrines n=ansible | ok: [vm3]
+2023-08-20 14:50:26,355 p=224083 u=lbrines n=ansible | ok: [vm4]
+2023-08-20 14:50:26,364 p=224083 u=lbrines n=ansible | TASK [Instalar el paquete Zabbix Release] *************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:50:26,398 p=224083 u=lbrines n=ansible | skipping: [vm1]
+2023-08-20 14:50:26,412 p=224083 u=lbrines n=ansible | skipping: [vm2]
+2023-08-20 14:50:26,412 p=224083 u=lbrines n=ansible | skipping: [vm3]
+2023-08-20 14:50:26,425 p=224083 u=lbrines n=ansible | skipping: [vm4]
+2023-08-20 14:50:26,432 p=224083 u=lbrines n=ansible | TASK [Actualizar la lista de paquetes] ****************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:50:36,249 p=224083 u=lbrines n=ansible | changed: [vm1]
+2023-08-20 14:50:36,537 p=224083 u=lbrines n=ansible | changed: [vm3]
+2023-08-20 14:50:36,866 p=224083 u=lbrines n=ansible | changed: [vm4]
+2023-08-20 14:50:45,074 p=224083 u=lbrines n=ansible | changed: [vm2]
+2023-08-20 14:50:45,082 p=224083 u=lbrines n=ansible | TASK [Instalar el paquete Zabbix Agent] ***************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:50:47,221 p=224083 u=lbrines n=ansible | ok: [vm1]
+2023-08-20 14:51:33,041 p=224083 u=lbrines n=ansible | changed: [vm2]
+2023-08-20 14:51:33,158 p=224083 u=lbrines n=ansible | changed: [vm4]
+2023-08-20 14:51:33,350 p=224083 u=lbrines n=ansible | changed: [vm3]
+2023-08-20 14:51:33,358 p=224083 u=lbrines n=ansible | TASK [Copiar archivo de configuración de Zabbix Agent] ************************************************************************************************************************************************************************************************************************
+2023-08-20 14:51:40,490 p=224083 u=lbrines n=ansible | changed: [vm2]
+2023-08-20 14:51:40,500 p=224083 u=lbrines n=ansible | changed: [vm3]
+2023-08-20 14:51:40,531 p=224083 u=lbrines n=ansible | changed: [vm1]
+2023-08-20 14:51:40,768 p=224083 u=lbrines n=ansible | changed: [vm4]
+2023-08-20 14:51:40,836 p=224083 u=lbrines n=ansible | RUNNING HANDLER [Reiniciar Zabbix Agent] **************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:51:42,591 p=224083 u=lbrines n=ansible | changed: [vm2]
+2023-08-20 14:51:42,618 p=224083 u=lbrines n=ansible | changed: [vm4]
+2023-08-20 14:51:42,664 p=224083 u=lbrines n=ansible | changed: [vm3]
+2023-08-20 14:51:42,687 p=224083 u=lbrines n=ansible | changed: [vm1]
+2023-08-20 14:51:42,765 p=224083 u=lbrines n=ansible | PLAY RECAP ********************************************************************************************************************************************************************************************************************************************************************
+2023-08-20 14:51:42,766 p=224083 u=lbrines n=ansible | vm1                        : ok=6    changed=3    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2023-08-20 14:51:42,766 p=224083 u=lbrines n=ansible | vm2                        : ok=6    changed=4    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2023-08-20 14:51:42,766 p=224083 u=lbrines n=ansible | vm3                        : ok=6    changed=4    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2023-08-20 14:51:42,766 p=224083 u=lbrines n=ansible | vm4                        : ok=6    changed=4    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   

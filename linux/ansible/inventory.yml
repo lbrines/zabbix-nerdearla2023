@@ -1,0 +1,10 @@
+all:
+  hosts:
+    vm1:
+      ansible_host: 192.168.56.201
+    vm2:
+      ansible_host: 192.168.56.202
+    vm3:
+      ansible_host: 192.168.56.203
+    vm4:
+      ansible_host: 192.168.56.204

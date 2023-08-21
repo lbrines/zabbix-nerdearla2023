@@ -1,0 +1,18 @@
+Vagrant.configure("2") do |win|
+  win.vm.box = "StefanScherer/windows_2019"
+  win.vm.network "private_network", ip: "192.168.56.220"
+  win.vm.hostname = "win-zabbix-agent"
+  win.winrm.timeout = 120
+  win.winrm.retry_limit = 20
+  
+  win.winrm.basic_auth_only = true
+  win.winrm.transport = :plaintext
+  win.vm.communicator = "winrm"
+  win.winrm.port = 55985
+  
+  win.vm.provider "virtualbox" do |vb|
+    vb.name = "win-zabbix-agent"
+    vb.memory = "2048"
+    #vb.gui = true
+  end
+end

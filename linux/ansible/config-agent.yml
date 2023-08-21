@@ -1,0 +1,44 @@
+---
+- name: Instalar y configurar Zabbix Agent
+  hosts: all
+  become: yes
+  become_user: root
+  
+  tasks:
+    - name: Descargar e instalar el paquete Zabbix Release
+      shell: wget https://repo.zabbix.com/zabbix/6.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.4-1+ubuntu22.04_all.deb
+      args:
+        chdir: /tmp
+      register: wget_output
+      changed_when: "'installed' in wget_output.stdout"
+    
+    - name: Instalar el paquete Zabbix Release
+      shell: dpkg -i zabbix-release_6.4-1+ubuntu22.04_all.deb
+      args:
+        chdir: /tmp
+      when: wget_output is changed
+    
+    - name: Actualizar la lista de paquetes
+      apt:
+        update_cache: yes
+    
+    - name: Instalar el paquete Zabbix Agent
+      apt:
+        name: zabbix-agent
+        state: present
+    
+    - name: Copiar archivo de configuración de Zabbix Agent
+      template:
+        src: templates/zabbix_agentd.conf.j2
+        dest: /etc/zabbix/zabbix_agentd.conf
+      notify: Reiniciar Zabbix Agent
+
+  handlers:
+    - name: Reiniciar Zabbix Agent
+      service:
+        name: zabbix-agent
+        state: restarted    
+    - name: Reiniciar el servicio Zabbix Agent
+      service:
+        name: zabbix-agent
+        state: restarted
