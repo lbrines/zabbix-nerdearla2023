@@ -1,3 +1,4 @@
 ansible_rsa
 ansible_rsa.pub
+ansible.log
 .vagrant

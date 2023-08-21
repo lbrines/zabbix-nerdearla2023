@@ -1,11 +1,11 @@
 Vagrant.configure("2") do |config|
   num_vms = 4  # Número de máquinas virtuales a crear
-
+  ansible_public_key = File.read("ansible/ansible_rsa.pub")
   config.vm.provision "shell", inline: <<-SHELL
     # Agregar el usuario 'ansible'
     sudo useradd -m -s /bin/bash ansible
     sudo mkdir -p /home/ansible/.ssh
-    sudo bash -c 'echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDHJmCKwfDDcSTQwOyG/khvkCj8OTYqkm1O7LKm8NDna4HD0NzExU0ozuqsjFdWTTqbseNvwFulpVQYjzEGgGLBdfmKI8GhL9zHSV4XqnMGh4JeppQWvE4F3MiTBFxBeh7BPoPnLlkQ84XkjMEX7XFgw7TVYm5sWxXfmadVpApm96/7skNVtZ61stFCnqyG3PWO+27+h3+7Y43uo4uugq78nLtHkpBxT5u07ifpmphDHd0xcfysZrMUAxM6b0XaGmL7UCDLOFt4YlyfVpA4fUVf63Fym+aeIv0mHVqctmZMvHL/HcZMNJlwJyYjdHzz/mQqdeXLMEmnBkOQ4XMms5y8xsvobMRDLdsRNrwGsqSL6VMBmPLpfJ89904my9ZSOeqMkPuW8/Ds1ti7IogNG8pO/Kot951UBXDwlD7kfGJxUs2vDsaBmmo6DBqWH/LvCpVhcroLvQymdHbOTxSaClNzF6ntxp0mIYpBAHG4E4Gp/Iv5N4auPkasv0ihZR1hc78gUCnpevzHNKsWjig7RWQ3vwXI+MmcshGOy236GonTe1GMXOwReOvF98PaSF4GQaSKaoyjhJEGZjrSxag3eRMjhLfK1o3pYjnaxqSBR7t0gZX7wmpaihs56A/a2Wq8iaZctEcBT5pKzlxtUnfuI8EUgc5Y+LFVu+SQThi87qOJKQ==" > /home/ansible/.ssh/authorized_keys'
+    echo "#{ansible_public_key}" > /home/ansible/.ssh/authorized_keys
     sudo chown -R ansible:ansible /home/ansible/.ssh
     sudo chmod 700 /home/ansible/.ssh
     sudo chmod 600 /home/ansible/.ssh/authorized_keys

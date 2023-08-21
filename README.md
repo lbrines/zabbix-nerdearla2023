@@ -5,10 +5,17 @@
 ## Índice
 
 - [**Instrucciones de Instalación para Workshop - Monitoreo con Zabbix**](#instrucciones-de-instalación-para-workshop---monitoreo-con-zabbix)
+  - [Índice](#índice)
   - [**Requisitos** 🛠️](#requisitos-️)
+  - [**Preparativos** 🛠️](#preparativos-️)
+      - [**1. Ansible**](#1-ansible)
+      - [**2. VirtualBox**](#2-virtualbox)
+      - [**3. Vagrant**](#3-vagrant)
+      - [**4. Clona el repo**](#4-clona-el-repo)
+      - [**5. Generar Clave SSH para Ansible**](#5-generar-clave-ssh-para-ansible)
+      - [**6. Levantar las Máquinas Virtuales**](#6-levantar-las-máquinas-virtuales)
   - [**Direcciones IP de las VMs**](#direcciones-ip-de-las-vms)
-  - [**Paso 1: Preparación del Entorno**](#paso-1-preparación-del-entorno)
-  - [**Paso 2: Configuración del Zabbix Server**](#paso-2-configuración-del-zabbix-server)
+  - [**Paso 1: Configuración del Zabbix Server**](#paso-1-configuración-del-zabbix-server)
   - [**Paso 3: Configuración del Zabbix Agent en VM1**](#paso-3-configuración-del-zabbix-agent-en-vm1)
   - [**Paso 4: Instalación del Agente Zabbix en Windows VM (Opcional)**](#paso-4-instalación-del-agente-zabbix-en-windows-vm-opcional)
   - [**Paso 5: Configuración del Autoregistro de Zabbix**](#paso-5-configuración-del-autoregistro-de-zabbix)
@@ -25,6 +32,105 @@ Antes de comenzar, asegúrate de tener instalados los siguientes programas en tu
 - [VirtualBox](https://www.virtualbox.org/)
 - [Vagrant](https://www.vagrantup.com/)
 
+## **Preparativos** 🛠️
+
+Antes de empezar con la configuración, es importante asegurarse de que tienes las herramientas adecuadas instaladas en tu computadora. No te preocupes si eres nuevo en esto, ¡te guiaré paso a paso!
+
+#### **1. Ansible**
+
+Ansible es una herramienta que te permitirá automatizar tareas en varios servidores de forma sencilla. Lo utilizaremos para configurar los agentes de Zabbix en nuestras máquinas virtuales.
+
+Puedes instalar Ansible siguiendo estos pasos:
+
+1. Abre una terminal en tu sistema.
+2. Dependiendo de tu sistema operativo, ejecuta el siguiente comando para instalar Ansible:
+
+   - En sistemas basados en Debian/Ubuntu:
+     ```bash
+     sudo apt update
+     sudo apt install ansible
+     ```
+
+   - En sistemas basados en Red Hat/Fedora:
+     ```bash
+     sudo dnf install ansible
+     ```
+
+#### **2. VirtualBox**
+
+VirtualBox es un software que te permite crear y gestionar máquinas virtuales en tu computadora. Usaremos VirtualBox para crear las máquinas virtuales donde configuraremos los agentes de Zabbix.
+
+Para instalar VirtualBox:
+
+1. Visita el sitio web de [VirtualBox](https://www.virtualbox.org/) y descarga el instalador correspondiente a tu sistema operativo.
+2. Ejecuta el instalador descargado y sigue las instrucciones en pantalla para completar la instalación.
+
+#### **3. Vagrant**
+
+Vagrant es una herramienta que facilita la creación y configuración de entornos de desarrollo reproducibles. Utilizaremos Vagrant para automatizar la creación de nuestras máquinas virtuales.
+
+Para instalar Vagrant:
+
+1. Visita el sitio web de [Vagrant](https://www.vagrantup.com/) y descarga el instalador adecuado para tu sistema operativo.
+2. Ejecuta el instalador descargado y sigue las instrucciones para finalizar la instalación.
+
+#### **4. Clona el repo**
+El repositorio del laboratorio contiene los archivos y configuraciones necesarios para realizar las tareas. Sigue estos pasos:
+
+Abre una terminal en tu sistema.
+
+Navega al directorio donde deseas guardar el repositorio utilizando el comando cd. Por ejemplo:
+
+```bash
+cd ruta/de/tu/directorio
+```
+
+Clona el repositorio ejecutando el siguiente comando:
+
+```bash
+git clone git@github.com:lbrines/zabbix-nerdearla2023.git
+```
+
+#### **5. Generar Clave SSH para Ansible**
+
+Ahora que tienes las herramientas instaladas, necesitamos generar una clave SSH que Ansible utilizará para conectarse de forma segura a los agentes de Zabbix en las máquinas virtuales. Sigue estos pasos:
+
+1. Abre una terminal en tu sistema.
+
+2. Navega al directorio donde planeas trabajar con Ansible. Por ejemplo:
+   ```bash
+   cd ruta/del/directorio/linux/ansible
+   ```
+
+3. Genera una nueva clave SSH utilizando el siguiente comando. Esto creará un par de claves pública y privada:
+   ```bash
+   ssh-keygen -t rsa -b 4096 -f ansible_rsa
+   ```
+
+4. Durante la generación de la clave, se te pedirá que ingreses una contraseña opcional. Puedes dejarlo en blanco para no establecer una contraseña.
+
+¡Listo! Ahora tienes una clave SSH llamada `ansible_rsa` en el directorio `linux/ansible` que Ansible usará para conectarse de manera segura a las máquinas virtuales y configurar los agentes de Zabbix.
+
+#### **6. Levantar las Máquinas Virtuales**
+
+Ahora que tienes el repositorio clonado, es hora de levantar las máquinas virtuales en las que configuraremos los agentes de Zabbix. Sigue estos pasos:
+
+1. Abre una terminal.
+
+2. Navega al directorio `linux` dentro del repositorio clonado:
+   ```bash
+   cd zabbix-nerdearla2023/linux
+   ```
+
+3. Ejecuta el siguiente comando para levantar las máquinas virtuales Linux:
+   ```bash
+   vagrant up
+   ```
+
+6. **Opcional:** Si también estás emocionado por explorar las máquinas virtuales Windows, navega al directorio `windows` dentro del repositorio clonado y ejecuta el mismo comando `vagrant up` para levantar las máquinas virtuales Windows.
+
+¡Listo! Ahora estás listo para comenzar a configurar los agentes de Zabbix en las máquinas virtuales que has levantado.
+
 ## **Direcciones IP de las VMs**
 
 Asegúrate de tomar nota de las siguientes direcciones IP para acceder a tus máquinas virtuales en el laboratorio:
@@ -36,15 +142,7 @@ Asegúrate de tomar nota de las siguientes direcciones IP para acceder a tus má
 - VM vm3: 192.168.56.203
 - VM vm4: 192.168.56.204
 
-## **Paso 1: Preparación del Entorno**
-
-1. Clona el repositorio del laboratorio.
-
-2. Navega al directorio `linux` y ejecuta el comando `vagrant up` para levantar las máquinas virtuales Linux.
-
-3. ¡Opcional y emocionante! Explora el directorio `windows` y también ejecuta `vagrant up` para levantar máquinas virtuales Windows.
-
-## **Paso 2: Configuración del Zabbix Server**
+## **Paso 1: Configuración del Zabbix Server**
 
 1. Accede al Zabbix Server utilizando `vagrant ssh zabbix-server`.
 
