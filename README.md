@@ -5,7 +5,6 @@
 ## Índice
 
 - [**Instrucciones de Instalación para Workshop - Monitoreo con Zabbix**](#instrucciones-de-instalación-para-workshop---monitoreo-con-zabbix)
-  - [Índice](#índice)
   - [**Requisitos** 🛠️](#requisitos-️)
   - [**Direcciones IP de las VMs**](#direcciones-ip-de-las-vms)
   - [**Paso 1: Preparación del Entorno**](#paso-1-preparación-del-entorno)
