@@ -5,6 +5,7 @@
 ## Índice
 
 - [**Taller de Monitoreo con Zabbix: Guía de Instalación**](#taller-de-monitoreo-con-zabbix-guía-de-instalación)
+  - [Índice](#índice)
   - [**Requisitos** 🛠️](#requisitos-️)
   - [**Preparativos** 🛠️](#preparativos-️)
       - [**1. Ansible**](#1-ansible)
@@ -163,6 +164,8 @@ Asegúrate de tomar nota de las siguientes direcciones IP para acceder a tus má
 
    ```bash
    sudo mysql -uroot -p
+   ```
+   ```bash
    # Ingresa la contraseña cuando se solicite
    create database zabbix character set utf8mb4 collate utf8mb4_bin;
    create user zabbix@localhost identified by 'password';
@@ -181,6 +184,8 @@ Asegúrate de tomar nota de las siguientes direcciones IP para acceder a tus má
 
    ```bash
    sudo mysql -uroot -p
+   ```
+   ```bash
    # Ingresa la contraseña cuando se solicite
    set global log_bin_trust_function_creators = 0;
    quit;
