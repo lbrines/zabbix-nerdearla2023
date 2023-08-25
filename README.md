@@ -163,10 +163,10 @@ Asegúrate de tomar nota de las siguientes direcciones IP para acceder a tus má
 2. Ejecuta los siguientes comandos uno a uno:
 
    ```bash
-   wget https://repo.zabbix.com/zabbix/6.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.4-1+ubuntu20.04_all.deb
+   wget https://repo.zabbix.com/zabbix/6.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.0-4+ubuntu20.04_all.deb
    ```
    ```bash
-   sudo dpkg -i zabbix-release_6.4-1+ubuntu20.04_all.deb
+   sudo dpkg -i zabbix-release_6.0-4+ubuntu20.04_all.deb
    ```
    ```bash
    sudo apt update
@@ -265,10 +265,10 @@ Asegúrate de tomar nota de las siguientes direcciones IP para acceder a tus má
 5. Ejecuta los siguientes comandos uno por uno:
 
    ```bash
-   wget https://repo.zabbix.com/zabbix/6.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.4-1+ubuntu20.04_all.deb
+   wget https://repo.zabbix.com/zabbix/6.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.0-4+ubuntu20.04_all.deb
    ```
    ```bash
-   sudo dpkg -i zabbix-release_6.4-1+ubuntu20.04_all.deb
+   sudo dpkg -i zabbix-release_6.0-4+ubuntu20.04_all.deb
    ```
    ```bash
    sudo apt update
