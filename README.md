@@ -1,6 +1,6 @@
 # **Taller de Monitoreo con Zabbix: Guía de Instalación**
 
-¡Bienvenidos al emocionante mundo del monitoreo con Zabbix! 🚀 En esta guía, te acompañaremos paso a paso para configurar tu propio entorno de laboratorio y adentrarte en el fascinante universo del monitoreo. ¡No te preocupes si eres un novato en la materia, estamos aquí para que disfrutes de un proceso divertido y sencillo! 😄
+¡Bienvenidos al emocionante mundo del monitoreo con Zabbix! 🚀 En esta guía, te acompañaremos paso a paso para configurar tu propio entorno de laboratorio y adentrarte en el fascinante universo del monitoreo. No te preocupes si eres un novato en el tema, estamos aquí para que disfrutes de un proceso divertido y sencillo! 😄
 
 ## Índice
 
@@ -51,11 +51,6 @@ La instalación de Ansible es tan sencilla como seguir estos pasos:
      ```
      ```bash
      sudo apt install ansible
-     ```
-
-   - En sistemas basados en Red Hat/Fedora:
-     ```bash
-     sudo dnf install ansible
      ```
 
 #### **2. VirtualBox**
@@ -121,11 +116,11 @@ Ahora que cuentas con las herramientas instaladas, necesitamos generar una clave
 
 #### **6. Levantar las Máquinas Virtuales**
 
-Con el repositorio clonado, es hora de levantar las máquinas virtuales en las
+Con el repositorio clonado, es hora de levantar las máquinas virtuales en las que configuraremos los agentes de Zabbix. Sigue estos pasos:
 
- que configuraremos los agentes de Zabbix. Sigue estos pasos:
+1. Abre una terminal
 
-1. Abre una terminal.
+.
 
 2. Navega al directorio `linux` dentro del repositorio clonado:
    ```bash
@@ -316,9 +311,9 @@ Asegúrate de tomar nota de las siguientes direcciones IP para acceder a tus má
 
 3. Cuando lo solicite, coloca la dirección IP del Zabbix Server `192.168.56.200`.
 
-4. Agrega el
+4. Agrega el host siguiendo los mismos pasos del Paso 3, pero utiliza el template llamado "Z
 
- host siguiendo los mismos pasos del Paso 3, pero utiliza el template llamado "Zabbix Agent Windows".
+abbix Agent Windows".
 
 ## **Paso 5: Configuración del Autoregistro de Zabbix**
 
@@ -326,8 +321,9 @@ Asegúrate de tomar nota de las siguientes direcciones IP para acceder a tus má
 2. Haz clic en el botón "Create action".
 3. Completa los datos básicos del formulario.
    ![Create action](img/config_5.png)
+   ```conf
    Coloca el nombre de la nueva acción y luego haz clic en "Add".
-
+   ```
    ![Add conditions](img/config_6.png)
    ```conf
    Tipo: Host metadata
@@ -358,12 +354,6 @@ Asegúrate de tomar nota de las siguientes direcciones IP para acceder a tus má
    ansible-playbook config-agent.yml
    ```
 
-5. En el frontend de Zabbix, ve a Configuración → Acciones, selecciona "Autoregistro" como fuente de eventos y haz clic en "Crear acción".
-
-6. En la pestaña "Acción", ponle un nombre a tu acción.
-
-7. Opcionalmente, especifica condiciones. Puedes hacer coincidir subcadenas o usar expresiones regulares en las condiciones para el nombre del host/metadatos del host. Si vas a usar la condición "Metadatos del host", consulta la siguiente sección.
-
-8. En la pestaña "Operaciones", agrega operaciones relevantes, como "Agregar host", "Agregar a grupo de hosts" (por ejemplo, hosts descubiertos), "Vincular a plantillas", etc.
+Al finalizar la ejecución, todos tus nuevos hosts deben estar activos en el Zabbix Server.
 
 ¡Y eso es todo, maestro! 🎉 Ahora tienes un entorno de laboratorio configurado con Zabbix para comenzar tu emocionante viaje en el mundo del monitoreo. ¡Diviértete explorando, modificando y aprendiendo! 😃📊🔍
