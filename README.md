@@ -1,6 +1,6 @@
 # **Taller de Monitoreo con Zabbix: Guía de Instalación**
 
-¡Bienvenidos al emocionante mundo del monitoreo con Zabbix! 🚀 En esta guía, te acompañaremos paso a paso para configurar tu propio entorno de laboratorio y adentrarte en el fascinante universo del monitoreo. No te preocupes si eres un novato en el tema, estamos aquí para que disfrutes de un proceso divertido y sencillo! 😄
+¡Bienvenidos al emocionante mundo del monitoreo con Zabbix! 🚀 En esta guía, te acompañaremos paso a paso para configurar tu propio entorno de laboratorio y adentrarte en el fascinante universo del monitoreo. No te preocupes si eres un novato en el tema, ¡estamos aquí para que disfrutes de un proceso divertido y sencillo! 😄
 
 ## Índice
 
@@ -48,8 +48,6 @@ La instalación de Ansible es tan sencilla como seguir estos pasos:
    - En sistemas basados en Debian/Ubuntu:
      ```bash
      sudo apt update
-     ```
-     ```bash
      sudo apt install ansible
      ```
 
@@ -98,31 +96,24 @@ cd zabbix-nerdearla2023/
 
 Ahora que cuentas con las herramientas instaladas, necesitamos generar una clave SSH que Ansible utilizará para conectarse de manera segura a los agentes de Zabbix en las máquinas virtuales. Sigue estos pasos:
 
-1. Abre una terminal en tu sistema.
-
-2. Navega al directorio donde planeas trabajar con Ansible. Por ejemplo:
+1. Genera una nueva clave SSH con el siguiente comando. Esto creará un par de claves pública y privada:
    ```bash
-   cd linux/ansible
+   ssh-keygen -t rsa -b 4096 -f ansible/key_rsa
    ```
 
-3. Genera una nueva clave SSH con el siguiente comando. Esto creará un par de claves pública y privada:
-   ```bash
-   ssh-keygen -t rsa -b 4096 -f ansible_rsa
-   ```
+2. Durante la generación de la clave, se te solicitará ingresar una contraseña opcional. Puedes dejarlo en blanco para no establecer una contraseña.
 
-4. Durante la generación de la clave, se te solicitará ingresar una contraseña opcional. Puedes dejarlo en blanco para no establecer una contraseña.
-
-¡Listo! Ahora tienes una clave SSH llamada `ansible_rsa` en el directorio `linux/ansible`, que Ansible utilizará para conectarse de manera segura a las máquinas virtuales y configurar los agentes de Zabbix.
+¡Listo! Ahora tienes una clave SSH llamada `key_rsa` en el directorio `ansible`, que Ansible utilizará para conectarse de manera segura a las máquinas virtuales y configurar los agentes de Zabbix.
 
 #### **6. Levantar las Máquinas Virtuales**
 
 Con el repositorio clonado, es hora de levantar las máquinas virtuales en las que configuraremos los agentes de Zabbix. Sigue estos pasos:
 
-1. Abre una terminal
+1. Abre una terminal.
 
-.
+2. Navega
 
-2. Navega al directorio `linux` dentro del repositorio clonado:
+ al directorio `linux` dentro del repositorio clonado:
    ```bash
    cd zabbix-nerdearla2023/linux
    ```
@@ -140,12 +131,14 @@ Con el repositorio clonado, es hora de levantar las máquinas virtuales en las q
 
 Asegúrate de tomar nota de las siguientes direcciones IP para acceder a tus máquinas virtuales en el laboratorio:
 
+```conf
 - Zabbix Server: 192.168.56.200
 - Windows VM: 192.168.56.220
-- VM vm1: 192.168.56.201
-- VM vm2: 192.168.56.202
-- VM vm3: 192.168.56.203
-- VM vm4: 192.168.56.204
+- Linux VM1: 192.168.56.201
+- Linux VM2: 192.168.56.202
+- Linux VM3: 192.168.56.203
+- Linux VM4: 192.168.56.204
+```
 
 ## **Paso 1: Configuración del Zabbix Server**
 
@@ -232,21 +225,39 @@ Asegúrate de tomar nota de las siguientes direcciones IP para acceder a tus má
    ```
 
 10. Accede a Zabbix en tu navegador utilizando: [http://192.168.56.200/zabbix/](http://192.168.56.200/zabbix/)
+![Welcome to Zabbix](img/zabbix_1.png)
 
-11. ¡Listo! Sigue los pasos en pantalla para configurar la contraseña de la base de datos, la región y la zona horaria.
-
-12. Ingresa con las siguientes credenciales:
+11. Verifica que todos los pre-requisitos estén OK
+![Check of pre-requisites](img/zabbix_2.png)
+12. Configuración de la base de datos:
+![Configure DB connection](img/zabbix_3.png) 
+13. Configuración de nombre y zona horaria:
+![Settings](img/zabbix_4.png) 
+14. Revisión de la configuración
+![Pre-installation summary](img/zabbix_5.png)
+15. Finaliza la instalación
+![Install](img/zabbix_6.png)
+16. Ingresa con las siguientes credenciales:
     - Usuario: Admin
     - Contraseña: zabbix
     - Accede a [http://192.168.56.200/zabbix/](http://192.168.56.200/zabbix/)
+![Access Zabbix Server](img/zabbix_7.png)
 
 ## **Paso 3: Configuración del primer host VM1**
 
 ### Crear el host
-1. Accede al menú principal a `Data Collection/Hosts`.
+1. Accede al menú principal a `Configuration/Hosts`  ![Create host](img/config_1.png)
 2. Haz clic en el botón "Create host".
 3. Completa los datos básicos del formulario.
-   ![Create host](img/config_2.png)
+   ![New host](img/config_2.png)
+   ```conf
+   Host name: vm1
+   Template: Linux by Zabbix agent
+   Groups: Linux servers
+   Click Add -> Agent
+   IP address: 192.168.56.201
+   Click en el botón Add
+   ```
    Este sería el resultado esperado:
    ![Create host](img/config_3.png)
 
@@ -294,61 +305,87 @@ Asegúrate de tomar nota de las siguientes direcciones IP para acceder a tus má
    ```bash
    sudo apt-get install stressapptest
    ```
+11. Verificamos que tengamos datos del Zabbix Server
+    ![Latest data](img
 
-10. Ejecuta la herramienta de estrés:
+/config_11.png)
+
+12. Ejecuta la herramienta de estrés (Opcional):
 
    ```bash
    stressapptest -s 3600
    ```
 
-11. ¡Voilà! ¡Has completado la configuración del agente de Zabbix en `vm1`!
+13. ¡Voilà! ¡Has completado la configuración del agente de Zabbix en `vm1`!
 
 ## **Paso 4: Instalación del Agente Zabbix en Windows VM (Opcional)**
 
 1. Accede por RDP a la máquina virtual de Windows con la dirección IP `192.168.56.220`.
 
 2. Instala `zabbix_agent-6.0.20-windows-amd64-openssl.msi` que se encuentra en `C:/vagrant`.
+![Explorer](img/win_1.png)
 
 3. Cuando lo solicite, coloca la dirección IP del Zabbix Server `192.168.56.200`.
+![Explorer](img/win_2.png)
 
-4. Agrega el host siguiendo los mismos pasos del Paso 3, pero utiliza el template llamado "Z
-
-abbix Agent Windows".
+4. Agrega el host siguiendo los mismos pasos del Paso 3.
+![New host win](img/win_3.png)
+   ```conf
+   Host name: Win1
+   Template: Windows by Zabbix agent
+   Groups: Windows servers
+   Click Add -> Agent
+   IP address: 192.168.56.220
+   Click en el botón Add
+   ```
+![Create host win](img/win_4.png)
 
 ## **Paso 5: Configuración del Autoregistro de Zabbix**
 
-1. Entra en el menú principal a `Alerts/Actions/Autoregistration actions`.
-2. Haz clic en el botón "Create action".
+1. Entra en el menú principal a `Configurations/Actions/Autoregistration actions`.
+2. Haz clic en el botón "Create action". ![Create host win](img/config_4.png)
 3. Completa los datos básicos del formulario.
    ![Create action](img/config_5.png)
    ```conf
-   Coloca el nombre de la nueva acción y luego haz clic en "Add".
+   Name: Linux Servers
+   Conditions: Click Add
    ```
    ![Add conditions](img/config_6.png)
    ```conf
-   Tipo: Host metadata
-   Coincide con: Linux Servers
+   Type: Host metadata
+   Operator: matches
+   Value: Linux Servers
+   Click en el botón Add
    ```
    ![Operations](img/config_7.png)
    ```conf
-   Haz clic en "Add".
+   Click en la solapa: Operations
+   Operations: click al link Add
    ```
    ![Operations add](img/config_8.png)
-   Selecciona la operación deseada.
+   ```conf
+   Operation: Add to host group
+   ```
 
    ![Operations add to host group](img/config_9.png)
    ```conf
-   Selecciona "Add to host group" y busca "Linux server".
+   Operation: Add to host group
+   Host groups "Linux server".
+   Click botón Add
    ```
    ![Operations Link to template](img/config_10.png)
    ```conf
-   Selecciona "Link to template" y busca "Linux by Zabbix agent".
-   Al finalizar, haz clic en el botón "Add".
+   Operation: Link to template
+   Host groups "Linux by Zabbix agent".
+   Click botón Add
    ```
-
+   ![Operations Link to template](img/config_12.png)
+   ```conf
+   Click botón Add
+   ```
    ¡Listo! Ahora tienes el Zabbix Server listo para recibir datos de autoregistro.
 
-4. Entra al directorio `linux/ansible` y ejecuta:
+4. Entra al directorio `ansible` y ejecuta:
 
    ```bash
    ansible-playbook config-agent.yml

@@ -1,5 +1,5 @@
-ansible_rsa
-ansible_rsa.pub
+key_rsa
+key_rsa.pub
 ansible.log
 .vagrant
 kubernetes
