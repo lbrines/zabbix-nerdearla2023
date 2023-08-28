@@ -85,6 +85,22 @@ Clona el repositorio con el siguiente comando:
 ```bash
 git clone https://github.com/lbrines/zabbix-nerdearla2023.git
 ```
+```bash
+├── ansible
+│   ├── ansible.cfg
+│   ├── ansible.log
+│   ├── config-agent.yml
+│   ├── inventory.yml
+│   ├── key_rsa
+│   ├── key_rsa.pub
+│   └── templates
+│       └── zabbix_agentd.conf.j2
+├── linux
+│   └── Vagrantfile
+└── windows
+    ├── Vagrantfile
+    └── zabbix_agent-6.0.20-windows-amd64-openssl.msi
+```
 
 Entra al repo clonado:
 
