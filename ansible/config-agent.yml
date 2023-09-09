@@ -6,14 +6,14 @@
   
   tasks:
     - name: Descargar e instalar el paquete Zabbix Release
-      shell: wget https://repo.zabbix.com/zabbix/6.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.4-1+ubuntu22.04_all.deb
+      shell: wget https://repo.zabbix.com/zabbix/6.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.0-4+ubuntu20.04_all.deb
       args:
         chdir: /tmp
       register: wget_output
       changed_when: "'installed' in wget_output.stdout"
     
     - name: Instalar el paquete Zabbix Release
-      shell: dpkg -i zabbix-release_6.4-1+ubuntu22.04_all.deb
+      shell: dpkg -i zabbix-release_6.0-4+ubuntu20.04_all.deb
       args:
         chdir: /tmp
       when: wget_output is changed
