@@ -131,7 +131,7 @@ Con el repositorio clonado, es hora de levantar las máquinas virtuales en las q
 
  al directorio `linux` dentro del repositorio clonado:
    ```bash
-   cd zabbix-nerdearla2023/linux
+   cd linux
    ```
 
 3. Ejecuta el siguiente comando para levantar las máquinas virtuales Linux:
