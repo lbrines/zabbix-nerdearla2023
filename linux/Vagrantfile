@@ -39,7 +39,7 @@ Vagrant.configure("2") do |config|
     end
     vm.vm.provision "shell", inline: <<-SHELL
       sudo apt-get update
-      sudo apt-get --download-only install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent mysql-server -y
+      sudo apt-get --download-only install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent zabbix-get mysql-server -y
     SHELL
   end
 end
