@@ -402,3 +402,12 @@ Al finalizar la ejecución, todos tus nuevos hosts deben estar activos en el Zab
 
 1. Documentación oficial de Zabbix: https://www.zabbix.com/la/manuals
 2. Documentación de instalación para distintos OS: https://www.zabbix.com/la/download
+
+---
+
+**Integraciones:**
+
+- **Kubernetes**: [Zabbix Integration](https://www.zabbix.com/integrations/kubernetes)
+- **Grafana**: [Zabbix Plugin](https://grafana.com/grafana/plugins/alexanderzobnin-zabbix-app/)
+
+---
