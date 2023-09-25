@@ -8,9 +8,9 @@
   - [Índice](#índice)
   - [**Requisitos** 🛠️](#requisitos-️)
   - [**Preparativos** 🛠️](#preparativos-️)
-      - [**1. Ansible**](#1-ansible)
-      - [**2. VirtualBox**](#2-virtualbox)
-      - [**3. Vagrant**](#3-vagrant)
+      - [**1. VirtualBox**](#1-virtualbox)
+      - [**2. Vagrant**](#2-vagrant)
+      - [**3. Ansible**](#3-ansible)
       - [**4. Clonar el Repositorio**](#4-clonar-el-repositorio)
       - [**5. Generar una Clave SSH para Ansible**](#5-generar-una-clave-ssh-para-ansible)
       - [**6. Levantar las Máquinas Virtuales**](#6-levantar-las-máquinas-virtuales)
@@ -28,46 +28,35 @@
 
 Antes de comenzar, asegúrate de tener instalados los siguientes programas en tu máquina:
 
-- [Ansible](https://www.ansible.com/)
 - [VirtualBox](https://www.virtualbox.org/)
 - [Vagrant](https://www.vagrantup.com/)
+- [Ansible](https://www.ansible.com/)
 
 ## **Preparativos** 🛠️
 
 Antes de sumergirnos en la configuración, vamos a asegurarnos de que cuentas con las herramientas necesarias instaladas en tu computadora. No importa si eres nuevo en esto, ¡te acompañaremos en cada paso!
 
-#### **1. Ansible**
-
-Ansible es una herramienta que te permite automatizar tareas en múltiples servidores de manera sencilla. Lo utilizaremos para configurar los agentes de Zabbix en nuestras máquinas virtuales.
-
-La instalación de Ansible es tan sencilla como seguir estos pasos:
-
-1. Abre una terminal en tu sistema.
-2. Según tu sistema operativo, ejecuta el siguiente comando para instalar Ansible:
-
-   - En sistemas basados en Debian/Ubuntu:
-     ```bash
-     sudo apt update
-     sudo apt install ansible
-     ```
-
-#### **2. VirtualBox**
+#### **1. VirtualBox**
 
 VirtualBox es un software que te permite crear y gestionar máquinas virtuales en tu computadora. Usaremos VirtualBox para crear las máquinas virtuales donde configuraremos los agentes de Zabbix.
 
 La instalación de VirtualBox es simple:
 
-1. Visita el sitio web de [VirtualBox](https://www.virtualbox.org/) y descarga el instalador correspondiente a tu sistema operativo.
+1. Visita el sitio web de [VirtualBox](https://www.virtualbox.org/wiki/Downloads) y descarga el instalador correspondiente a tu sistema operativo.
 2. Ejecuta el instalador descargado y sigue las instrucciones en pantalla para completar la instalación.
 
-#### **3. Vagrant**
+#### **2. Vagrant**
 
 Vagrant es una herramienta que facilita la creación y configuración de entornos de desarrollo reproducibles. Utilizaremos Vagrant para automatizar la creación de nuestras máquinas virtuales.
 
 La instalación de Vagrant es sencilla:
 
-1. Visita el sitio web de [Vagrant](https://www.vagrantup.com/) y descarga el instalador adecuado para tu sistema operativo.
+1. Visita el sitio web de [Vagrant](https://developer.hashicorp.com/vagrant/downloads) y descarga el instalador adecuado para tu sistema operativo.
 2. Ejecuta el instalador descargado y sigue las instrucciones para finalizar la instalación.
+
+#### **3. Ansible**
+
+[Ansible](https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html) es una herramienta que te permite automatizar tareas en múltiples servidores de manera sencilla. Lo utilizaremos para configurar los agentes de Zabbix en nuestras máquinas virtuales.
 
 #### **4. Clonar el Repositorio**
 El repositorio del laboratorio contiene todos los archivos y configuraciones necesarios para llevar a cabo las tareas. Sigue estos pasos:
@@ -386,7 +375,7 @@ Asegúrate de tomar nota de las siguientes direcciones IP para acceder a tus má
    ![Operations add to host group](img/config_9.png)
    ```conf
    Operation: Add to host group
-   Host groups "Linux server".
+   Host groups "Linux Server".
    Click botón Add
    ```
    ![Operations Link to template](img/config_10.png)
@@ -410,3 +399,6 @@ Asegúrate de tomar nota de las siguientes direcciones IP para acceder a tus má
 Al finalizar la ejecución, todos tus nuevos hosts deben estar activos en el Zabbix Server.
 
 ¡Y eso es todo, maestro! 🎉 Ahora tienes un entorno de laboratorio configurado con Zabbix para comenzar tu emocionante viaje en el mundo del monitoreo. ¡Diviértete explorando, modificando y aprendiendo! 😃📊🔍
+
+1. Documentación oficial de Zabbix: https://www.zabbix.com/la/manuals
+2. Documentación de instalación para distintos OS: https://www.zabbix.com/la/download
